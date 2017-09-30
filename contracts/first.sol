@@ -17,15 +17,18 @@ contract SimpleStorage is mortal {
     string nameOfParty;
     string locationOfParty;
     address[] organizersAdresses;
+    uint numberOfOrganizers;
 
 
-  function setConfiguration(string name, string place){
+  function setConfiguration(string name, string place, uint organizers){
     nameOfParty = name ;
     locationOfParty = place;
+    numberOfOrganizers = organizers;
 
   }
 
   function setOrganizersAddresses(address[] data){
+    organizersAdresses.length = numberOfOrganizers;
     organizersAdresses = data;
   }
 
