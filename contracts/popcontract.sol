@@ -12,12 +12,12 @@ contract mortal {
     function kill() { if (msg.sender == owner) selfdestruct(owner); }
 }
 
-contract SimpleStorage is mortal {
+contract popcontract is mortal {
 
-    string nameOfParty;
-    string locationOfParty;
-    address[] organizersAdresses;
-    uint numberOfOrganizers;
+    public string nameOfParty;
+    public string locationOfParty;
+    public uint numberOfOrganizers;
+    public address[] organizersAdresses;
 
 
   function setConfiguration(string name, string place, uint organizers){
@@ -40,7 +40,6 @@ contract SimpleStorage is mortal {
     }
     function getOrganizersAddresses() constant returns (address[]){
         return organizersAdresses;
-        //pas sur que ça compile ce bail
     }
 
 }

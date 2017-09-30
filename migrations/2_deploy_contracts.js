@@ -1,6 +1,6 @@
 
-var first = artifacts.require("./first.sol");
+var Popcontract = artifacts.require("./popcontract.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(first);
+  deployer.deploy(Popcontract);
 };
