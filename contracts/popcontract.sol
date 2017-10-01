@@ -14,10 +14,12 @@ contract mortal {
 
 contract popcontract is mortal {
 
-    public string nameOfParty;
-    public string locationOfParty;
-    public uint numberOfOrganizers;
-    public address[] organizersAdresses;
+     string nameOfParty;
+     string locationOfParty;
+     uint numberOfOrganizers;
+     address[] organizersAdresses;
+     address[] signedConfiguration;
+     address nullAddress = 0x0000000000000000000000000000000000000000;
 
 
   function setConfiguration(string name, string place, uint organizers){
@@ -41,5 +43,27 @@ contract popcontract is mortal {
     function getOrganizersAddresses() constant returns (address[]){
         return organizersAdresses;
     }
+
+  //not very elegant but works. To do : remove index
+  //change this functions such that it returns the organizer index instead of the address registered
+  function signConfig() returns (address){
+
+    //verify if msg.sender address is in organizersAdresses
+    bool pres = false;
+    uint i=0;
+    for (i; i< numberOfOrganizers; i++){
+      if(msg.sender == organizersAdresses[i]){
+        pres = true ;
+      }
+    }
+
+    //add the address only if valid organizer.
+    if(pres){
+      signedConfiguration[i] = msg.sender;
+      return msg.sender;
+    } else{
+      return nullAddress;
+    }
+  }
 
 }
