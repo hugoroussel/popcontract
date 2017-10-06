@@ -18,7 +18,7 @@ NOTE : In the future modify the function such that the other organizers can sign
 Every organizer sends a (sorted) list of public attendees keys to the contract. Until the limit time/date, they are free to update the list.
 Once one set of key has been deposited the contract passes in the state "keyDeposit".
 
-### Set 4, reach consensus :
+### Step 4, reach consensus :
 
 The contract decides which set of keys to keep using either :
 
