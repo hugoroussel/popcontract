@@ -1,5 +1,5 @@
 # Proof of Personhood on the Ethereum blockchain
-Concile anonymity and accoutability using proof of Personhood tokens and the Ethereum blockchain
+Concile anonymity and accoutability using proof of personhood tokens and the ethereum blockchain.
 
 ## Setting up the configuration of the party
 
@@ -33,9 +33,11 @@ Once this is done, the contract enters the state "Locked".
 http://truffleframework.com/
 
 Run a local version of the Ethereum blockchain using :
+
 `testrpc`
 
 Then : 
+
 `truffle compile`
 
 `truffle migrate`
