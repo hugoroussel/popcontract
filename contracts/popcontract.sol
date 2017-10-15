@@ -14,7 +14,6 @@ contract mortal {
 
 contract popcontract is mortal {
 
-
   //States of the contract
    enum contractState {
      initialState,
@@ -32,6 +31,10 @@ contract popcontract is mortal {
    address[] organizersAdresses;
    address[] signedConfiguration;
    address nullAddress = 0x0000000000000000000000000000000000000000;
+
+   //for the moment the public addresses are on the format Ethereum
+   mapping (address => address[]) public publicKeySet;
+
 
   modifier onlyState(contractState expectedState){
     if(expectedState == currentState){_;}
@@ -97,6 +100,27 @@ contract popcontract is mortal {
       }
     }
   }
+
+  function isOrganizer(address sender) onlyState(contractState.configurationSigned) returns (bool){
+    for(uint i=0; i<numberOfOrganizers; i++){
+      if(organizersAdresses[i]==sender){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function depositPublicKeys (address [] _publicKeySet) onlyState(contractState.configurationSigned) returns (bool){
+    if(isOrganizer(msg.sender)){
+       _publicKeySet = publicKeySet[msg.sender];
+       return true;
+    }
+    return false; 
+  }
+
+
+
+
 
 
 

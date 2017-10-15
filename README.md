@@ -36,8 +36,16 @@ Run a local version of the Ethereum blockchain using :
 
 `testrpc`
 
-Then : 
+Then :
 
 `truffle compile`
 
 `truffle migrate`
+
+
+## To do :
+
+* Write tests
+* Change the format of the publicKeySet into ed25519
+* Write consensus function
+* Debug migrations.sol stuck on truffle migrate
