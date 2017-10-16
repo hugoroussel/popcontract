@@ -23,23 +23,22 @@ contract popcontract is mortal {
      locked
    }
 
-   //can change some of the variables to public to delete getters
    contractState public currentState;
-   string nameOfParty;
-   string locationOfParty;
+   string public nameOfParty;
+   string public locationOfParty;
+   uint public endOfParty;
    uint numberOfOrganizers;
    address[] organizersAdresses;
    address[] signedConfiguration;
    address nullAddress = 0x0000000000000000000000000000000000000000;
-
-   //for the moment the public addresses are on the format Ethereum
-   mapping (address => address[]) public publicKeySet;
 
 
   modifier onlyState(contractState expectedState){
     if(expectedState == currentState){_;}
     else{revert();}
   }
+  modifier beforeDeadline() { if (now <= endOfParty) _; }
+  modifier afterDeadline() { if (now >= endOfParty) _; }
 
   //constructor to initialize contract state
   function popcontract(){
@@ -47,8 +46,16 @@ contract popcontract is mortal {
   }
 
   //to do : add modifier so only accessible in initialState
-  function setConfiguration (string name, string place, uint organizers, address[] data) onlyState(contractState.initialState) returns (bool) {
+  function setConfiguration (
+    string name,
+    string place,
+    uint organizers,
+    address[] data,
+    uint durationInMinutes)
+    onlyState(contractState.initialState) returns (bool)
+    {
     if(msg.sender == owner){
+    endOfParty = now + durationInMinutes * 1 minutes;
     nameOfParty = name ;
     locationOfParty = place;
     numberOfOrganizers = organizers;
@@ -56,18 +63,12 @@ contract popcontract is mortal {
     organizersAdresses = data;
     currentState = contractState.configurationSet;
     return true;
-    }else{
+    }
+    else{
     revert();
     }
-
   }
 
-  function getName() constant returns (string) {
-      return nameOfParty;
-  }
-  function getPlace() constant returns (string) {
-      return locationOfParty;
-  }
   function getOrganizersAddresses() constant returns (address[]){
       return organizersAdresses;
   }
@@ -110,13 +111,18 @@ contract popcontract is mortal {
     return false;
   }
 
-  function depositPublicKeys (address [] _publicKeySet) onlyState(contractState.configurationSigned) returns (bool){
+/*
+  function depositPublicKeys (address [] _publicKeySet) onlyState(contractState.configurationSigned) beforeDeadline returns (bool){
     if(isOrganizer(msg.sender)){
-       _publicKeySet = publicKeySet[msg.sender];
+       currentState = contractState.keyDeposited;
        return true;
     }
-    return false; 
+    return false;
   }
+
+  function publicKeyConsensus() onlyState(contractState.keyDeposited) afterDeadline returns (address){
+  }
+*/
 
 
 
