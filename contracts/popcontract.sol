@@ -23,6 +23,13 @@ contract popcontract is mortal {
      locked
    }
 
+   struct publicKeySet{
+     address sender;
+     address[] keySet;
+   }
+
+
+   publicKeySet [] public allSets;
    contractState public currentState;
    string public nameOfParty;
    string public locationOfParty;
@@ -111,18 +118,22 @@ contract popcontract is mortal {
     return false;
   }
 
-/*
+
   function depositPublicKeys (address [] _publicKeySet) onlyState(contractState.configurationSigned) beforeDeadline returns (bool){
     if(isOrganizer(msg.sender)){
+       allSets.push(publicKeySet(msg.sender, _publicKeySet));
        currentState = contractState.keyDeposited;
        return true;
     }
     return false;
   }
 
+/*
   function publicKeyConsensus() onlyState(contractState.keyDeposited) afterDeadline returns (address){
   }
+
 */
+
 
 
 
