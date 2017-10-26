@@ -23,6 +23,7 @@ contract popcontract is mortal {
      locked
    }
 
+   //how to insert ed25519
    struct publicKeySet{
      address sender;
      address[] keySet;
@@ -30,6 +31,7 @@ contract popcontract is mortal {
 
 
    publicKeySet [] public allSets;
+   publicKeySet public finalKeySet;
    contractState public currentState;
    string public nameOfParty;
    string public locationOfParty;
@@ -128,11 +130,17 @@ contract popcontract is mortal {
     return false;
   }
 
-/*
-  function publicKeyConsensus() onlyState(contractState.keyDeposited) afterDeadline returns (address){
+  //Just returns the last keySet (temporary)
+  function publicKeyConsensus() onlyState(contractState.keyDeposited) afterDeadline returns (bool){
+    if(allSets.length != 0){
+    finalKeySet=allSets[allSets.length];
+    currentState = contractState.locked;
+    return true;
+  }
+  return false;
   }
 
-*/
+
 
 
 

@@ -4,7 +4,7 @@ import "truffle/Assert.sol";
 import "truffle/DeployedAddresses.sol";
 import "../contracts/popcontract.sol";
 
-contract TestFirst {
+contract TestPopcontract {
   Popcontract popcontract = Popcontract(DeployedAddresses.Popcontract());
 
 }
