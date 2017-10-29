@@ -21,23 +21,20 @@ Every organizer sends a (sorted) list of public attendees keys to the contract. 
 
 The contract decides which set of keys to register by taking the one submitted by most organizers. Other ways to reach consensus are also possible. The organizer could include the one choosen in the configuration of the party. Once this is done, the contract enters the state "Locked".
 
-## How to deploy using the truffle framework :
+## How to deploy using Go :
 
-http://truffleframework.com/
+If you wish to modify the solidity contract, before running execute :
 
-Run a local version of the Ethereum blockchain using :
-
-`testrpc`
+`abigen --sol=popcontract.sol --pkg=main --out=pop.go`
 
 Then :
 
-`truffle compile`
-
-`truffle migrate`
+`go build . && ./popcontract`
 
 
 ## To do :
 
-* Write tests
+* Link current version of app.go with main.go
+* Connect CLI to main.go
 * Change the format of the publicKeySet into ed25519
 * Write consensus function
