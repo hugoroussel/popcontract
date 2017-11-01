@@ -3,6 +3,9 @@ Concile anonymity and accoutability using proof of personhood tokens and the eth
 
 ## Setting up the configuration of the party
 
+![Alt text](/home/hugo/Desktop/fsm.jpg?raw=true "")
+
+
 ### Step 1, setting up the paramaters :
 
 Organizer 1 (admin) deploys the popcontract and sends the configuration of the party using a private function, registering the different data needed : name, place, duration and the Ethereum public addresses of the n other organizers.
@@ -30,6 +33,8 @@ If you wish to modify the solidity contract, before running execute :
 Then :
 
 `go build . && ./popcontract`
+
+
 
 
 ## To do :

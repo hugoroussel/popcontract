@@ -79,6 +79,7 @@ contract popcontract is mortal {
   function setName(string _name) onlyState(contractState.initialState) returns (bool){
     nameOfParty = _name;
   }
+
   function getOrganizersAddresses() constant returns (address[]){
       return organizersAdresses;
   }
@@ -125,7 +126,9 @@ contract popcontract is mortal {
   function depositPublicKeys (address [] _publicKeySet) onlyState(contractState.configurationSigned) beforeDeadline returns (bool){
     if(isOrganizer(msg.sender)){
        allSets.push(publicKeySet(msg.sender, _publicKeySet));
+       if(currentState != contractState.keyDeposited){
        currentState = contractState.keyDeposited;
+     }
        return true;
     }
     return false;
@@ -133,7 +136,7 @@ contract popcontract is mortal {
 
   //Just returns the last keySet (temporary)
   function publicKeyConsensus() onlyState(contractState.keyDeposited) afterDeadline returns (bool){
-    if(allSets.length != 0){
+    if(allSets.length != 0 && msg.sender == owner){
     finalKeySet=allSets[allSets.length];
     currentState = contractState.locked;
     return true;
