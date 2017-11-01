@@ -3,8 +3,7 @@ Concile anonymity and accoutability using proof of personhood tokens and the eth
 
 ## Setting up the configuration of the party
 
-![Alt text](/home/hugo/Desktop/fsm.jpg?raw=true "")
-
+![Image](/doc/fsm.jpg)
 
 ### Step 1, setting up the paramaters :
 
