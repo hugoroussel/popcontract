@@ -1,7 +1,9 @@
 pragma solidity ^0.4.0;
 
 
+
 contract mortal {
+
   /* Define variable owner of the type address */
   address owner;
 
@@ -23,7 +25,8 @@ contract popcontract is mortal {
      locked
    }
 
-   //how to insert ed25519
+
+
    struct publicKeySet{
      address sender;
      address[] keySet;
@@ -37,9 +40,11 @@ contract popcontract is mortal {
    string public locationOfParty;
    uint public endOfParty;
    uint numberOfOrganizers;
-   address[] organizersAdresses;
-   address[] signedConfiguration;
+   address[] public organizersAdresses;
+   address[] public signedConfiguration;
    address nullAddress = 0x0000000000000000000000000000000000000000;
+   address testAddress = 0x0000000000000000000000000000000000000012;
+   bool public signed;
 
 
   modifier onlyState(contractState expectedState){
@@ -69,6 +74,8 @@ contract popcontract is mortal {
     organizersAdresses.length = numberOfOrganizers;
     organizersAdresses = data;
     currentState = contractState.configurationSet;
+    signedConfiguration.length = organizers;
+    signed = false;
     return true;
     }
     else{
@@ -84,26 +91,35 @@ contract popcontract is mortal {
       return organizersAdresses;
   }
 
-  function configSignOrganizers() onlyState(contractState.configurationSet) returns (bool){
-    //verify if msg.sender address is in organizersAdresses and sign if it is case
-    for (uint i; i< numberOfOrganizers; i++){
-      if(msg.sender == organizersAdresses[i]){
-        signedConfiguration[i] = msg.sender;
-        return true;
+  function getSignedConfiguration() constant returns (address[]){
+      return signedConfiguration;
+  }
+
+
+//Security risk here
+  function configSignOrganizers() onlyState(contractState.configurationSet) returns (address) {
+
+      uint index = 0;
+
+      for(uint i=0;i< numberOfOrganizers;i++){
+        if(msg.sender == organizersAdresses[i]){
+          index = i;
+        }
       }
-    }
-    return false;
+
+      signedConfiguration.push(organizersAdresses[index]);
   }
 
   //after the signing of the configuration by the organizers the admin changes the state of the contract
   function signWholeConfiguration() onlyState(contractState.configurationSet) returns (bool){
     bool correct = false;
     if(msg.sender == owner){
-      for(uint i =0; i< numberOfOrganizers; i++){
-        if(signedConfiguration[i]==nullAddress){
+      for(uint i=0; i< numberOfOrganizers; i++){
+        if(signedConfiguration[i+3]==nullAddress){
           revert();
         } else{
           correct = true;
+          signed = true;
         }
       }
       if(correct){

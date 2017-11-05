@@ -7,9 +7,11 @@ import(
 var commandAdmin, commandOrg, commandAttendee cli.Command
 
 func init() {
-/*
 
+/*
 // Preliminary commands. Was not able to make "Action" work, the contract objetct & the functions are not recognized
+// additional function deploy contract to write
+
 	commandAdmin = cli.Command{
 		Name: "administrator",
 		Aliases: []string{"admin"},
@@ -19,7 +21,8 @@ func init() {
 			Name: "name",
 			Usage: "set name of party",
 			ArgsUsage : "name of party",
-			Action: contract.SetName,
+			//Action: contract.SetName,
+			Action: setName,
 		},
 		{
 			Name: "setup",
@@ -99,6 +102,6 @@ func init() {
 			},
 		},
 	}
-*/
 
+*/
 }
