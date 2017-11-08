@@ -1,6 +1,7 @@
 package main
 
 import (
+
 	"fmt"
 	"log"
 	"math/big"
@@ -18,7 +19,7 @@ import (
 	_ "github.com/dedis/cothority/cosi/protocol"
 	_ "github.com/dedis/cothority/cosi/service"
 
-
+	_ "time"
 
 )
 
@@ -101,10 +102,10 @@ func main() {
 
 	//fmt.Println("emp:", s)
 
-	i := big.NewInt(3)
-	j := big.NewInt(60)
+	numberOrgs := big.NewInt(3)
+	deadlineMin := big.NewInt(1)
 
-	contract.SetConfiguration(auth, "Lausanne" , i, s, j)
+	contract.SetConfiguration(auth, "Lausanne" , numberOrgs, s, deadlineMin)
 
 	sim.Commit()
 
@@ -114,8 +115,8 @@ func main() {
 	place, err := contract.LocationOfParty(nil)
 	fmt.Printf("Location of Party: %s \n", place)
 
-	time, err := contract.EndOfParty(nil)
-	fmt.Printf("Time %s \n", time)
+	time1, err := contract.EndOfParty(nil)
+	fmt.Printf("Time in seconds %s \n", time1)
 
 	tab, err := contract.GetOrganizersAddresses(nil)
 	fmt.Printf("Organizer 1 : %x \n", tab[0])
@@ -165,10 +166,10 @@ func main() {
 	fmt.Printf("Signed 3: %x \n", tabSigned[5])
 
 
-	//Catches well the error if someone != from admin calls it
+	//Catches well the error if someone != from admin calls it. Changing to auth, should return true
 	contract.SignWholeConfiguration(&bind.TransactOpts{
-		From:     auth_1.From,
-    Signer:   auth_1.Signer,
+		From:     auth.From,
+    Signer:   auth.Signer,
     GasLimit: big.NewInt(2381623),
 		Value:    big.NewInt(0),
 	})
@@ -193,15 +194,40 @@ func main() {
 	attendees[1]=	auth_B.From
 	attendees[2]= auth_C.From
 
-	/*
+	//k := PublicKeySet{auth_1.From, attendees}
+
+
 	contract.DepositPublicKeys(&bind.TransactOpts{
 		From:     auth_3.From,
 		Signer:   auth_3.Signer,
 		GasLimit: big.NewInt(2381623),
 		Value:    big.NewInt(0),
-	}, _publicKeySet(auth_1, attendees))
+	}, attendees)
 
-	*/
+	sim.Commit()
+
+
+	/*
+
+	//time.Sleep(200 * time.Second)
+
+	contract.PublicKeyConsensus(&bind.TransactOpts{
+		From:     auth.From,
+    Signer:   auth.Signer,
+    GasLimit: big.NewInt(2381623),
+		Value:    big.NewInt(0),
+	})
+
+	sim.Commit()
+	//fmt.Printf(err)
+	fmt.Printf("Consensus reached : %t \n", signature)
+
+*/
+
+
+
+
+
 
 
 

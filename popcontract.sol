@@ -33,8 +33,8 @@ contract popcontract is mortal {
    }
 
 
-   publicKeySet [] public allSets;
-   publicKeySet public finalKeySet;
+   publicKeySet[] public allSets;
+   address [] public finalKeySet;
    contractState public currentState;
    string public nameOfParty;
    string public locationOfParty;
@@ -75,7 +75,6 @@ contract popcontract is mortal {
     organizersAdresses = data;
     currentState = contractState.configurationSet;
     signedConfiguration.length = organizers;
-    signed = false;
     return true;
     }
     else{
@@ -151,9 +150,15 @@ contract popcontract is mortal {
   }
 
   //Just returns the last keySet (temporary)
-  function publicKeyConsensus() onlyState(contractState.keyDeposited) afterDeadline returns (bool){
-    if(allSets.length != 0 && msg.sender == owner){
-    finalKeySet=allSets[allSets.length];
+  //function publicKeyConsensus() onlyState(contractState.keyDeposited) afterDeadline returns (bool){
+  //allSets.length != 0 && msg.sender == owner
+  //onlyState(contractState.keyDeposited)
+
+  /*
+  function publicKeyConsensus() returns (bool){
+    if(true){
+    signed = true;
+    finalKeySet = allSets[allSets.length-1].keySet;
     currentState = contractState.locked;
     return true;
   }
@@ -161,7 +166,7 @@ contract popcontract is mortal {
   }
 
 
-
+  */
 
 
 
