@@ -25,16 +25,16 @@ contract popcontract is mortal {
      locked
    }
 
-
-
    struct publicKeySet{
      address sender;
-     address[] keySet;
+     bytes32 [] keySet;
    }
 
 
+
    publicKeySet[] public allSets;
-   address [] public finalKeySet;
+   bytes32 [] public finalKeySet;
+
    contractState public currentState;
    string public nameOfParty;
    string public locationOfParty;
@@ -43,7 +43,6 @@ contract popcontract is mortal {
    address[] public organizersAdresses;
    address[] public signedConfiguration;
    address nullAddress = 0x0000000000000000000000000000000000000000;
-   address testAddress = 0x0000000000000000000000000000000000000012;
    bool public signed;
 
 
@@ -74,7 +73,7 @@ contract popcontract is mortal {
     organizersAdresses.length = numberOfOrganizers;
     organizersAdresses = data;
     currentState = contractState.configurationSet;
-    signedConfiguration.length = organizers;
+    signedConfiguration.length = organizers-1;
     return true;
     }
     else{
@@ -83,7 +82,11 @@ contract popcontract is mortal {
   }
 
   function setName(string _name) onlyState(contractState.initialState) returns (bool){
+    if(msg.sender == owner){
     nameOfParty = _name;
+    return true;
+  }
+  return false;
   }
 
   function getOrganizersAddresses() constant returns (address[]){
@@ -94,27 +97,23 @@ contract popcontract is mortal {
       return signedConfiguration;
   }
 
-
-//Security risk here
   function configSignOrganizers() onlyState(contractState.configurationSet) returns (address) {
 
-      uint index = 0;
-
-      for(uint i=0;i< numberOfOrganizers;i++){
+      for(uint i=0;i<numberOfOrganizers;i++){
         if(msg.sender == organizersAdresses[i]){
-          index = i;
+          signedConfiguration.push(organizersAdresses[i]);
+          return msg.sender;
         }
       }
-
-      signedConfiguration.push(organizersAdresses[index]);
+      return nullAddress;
   }
 
   //after the signing of the configuration by the organizers the admin changes the state of the contract
   function signWholeConfiguration() onlyState(contractState.configurationSet) returns (bool){
     bool correct = false;
     if(msg.sender == owner){
-      for(uint i=0; i< numberOfOrganizers; i++){
-        if(signedConfiguration[i+3]==nullAddress){
+      for(uint i=0; i<signedConfiguration.length; i++){
+        if(signedConfiguration[i]==nullAddress){
           revert();
         } else{
           correct = true;
@@ -138,7 +137,7 @@ contract popcontract is mortal {
   }
 
 
-  function depositPublicKeys (address [] _publicKeySet) onlyState(contractState.configurationSigned) beforeDeadline returns (bool){
+  function depositPublicKeys (bytes32 [] _publicKeySet) onlyState(contractState.configurationSigned) beforeDeadline returns (bool){
     if(isOrganizer(msg.sender)){
        allSets.push(publicKeySet(msg.sender, _publicKeySet));
        if(currentState != contractState.keyDeposited){
@@ -154,9 +153,8 @@ contract popcontract is mortal {
   //allSets.length != 0 && msg.sender == owner
   //onlyState(contractState.keyDeposited)
 
-  /*
-  function publicKeyConsensus() returns (bool){
-    if(true){
+function publicKeyConsensus() onlyState(contractState.keyDeposited) beforeDeadline returns (bool){
+    if(allSets.length != 0 && msg.sender == owner){
     signed = true;
     finalKeySet = allSets[allSets.length-1].keySet;
     currentState = contractState.locked;
@@ -164,14 +162,4 @@ contract popcontract is mortal {
   }
   return false;
   }
-
-
-  */
-
-
-
-
-
-
-
 }
