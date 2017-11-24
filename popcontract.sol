@@ -60,6 +60,7 @@ contract popcontract is mortal {
 
   //to do : add modifier so only accessible in initialState
   function setConfiguration (
+    string _nameOfParty,
     string place,
     uint organizers,
     address[] data,
@@ -67,6 +68,7 @@ contract popcontract is mortal {
     onlyState(contractState.initialState) returns (bool)
     {
     if(msg.sender == owner){
+    nameOfParty = _nameOfParty;
     endOfParty = now + durationInMinutes * 1 minutes;
     locationOfParty = place;
     numberOfOrganizers = organizers;
@@ -81,13 +83,6 @@ contract popcontract is mortal {
     }
   }
 
-  function setName(string _name) onlyState(contractState.initialState) returns (bool){
-    if(msg.sender == owner){
-    nameOfParty = _name;
-    return true;
-  }
-  return false;
-  }
 
   function getOrganizersAddresses() constant returns (address[]){
       return organizersAdresses;

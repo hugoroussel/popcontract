@@ -27,7 +27,7 @@ type Config struct {
 
 var key = `{"address":"286485b3026d5d817f1f444060516b439b13dd2b","crypto":{"cipher":"aes-128-ctr","ciphertext":"d1a54d49808b658d9ea5a2c795c6a26741483699bf258d43a1d102dbfded867a","cipherparams":{"iv":"779603e70f888ee1496cbe19a7575cef"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"3fcc04ce5dbbfcdcdadeff6d5a69b05bb1931e435459105883ac64de5aefe271"},"mac":"d170e43d5e67e747bf766a112f48f649f574e6938ceb8c361dd73f7e2a586c16"},"id":"cad9bc2c-89c2-401f-bc5e-de4b4a11161d","version":3}`
 
-var nonce int64 = 108
+var nonce int64 = 114
 
 func main() {
 
@@ -146,7 +146,8 @@ func orgConfig(jsonKey string, jsonKeyPassword string, network string, config Co
 		GasPrice: big.NewInt(90000000000),
 		Value:    big.NewInt(0),
 		Nonce:    big.NewInt(nonce),
-	}, config.Location, big.NewInt(config.NumberOfOrganizers), config.OrganizersAddresses, big.NewInt(config.Deadline))
+	}, config.Name, config.Location, big.NewInt(config.NumberOfOrganizers), config.OrganizersAddresses, big.NewInt(config.Deadline))
+
 	if err != nil {
 		log.Fatalf("could not set configuration: %v", err)
 	}
