@@ -3,8 +3,6 @@ Concile anonymity and accoutability using proof of personhood tokens and the eth
 
 ## Setting up the configuration of the party
 
-![Image](/doc/fsm.jpg)
-
 ### Step 1, setting up the paramaters :
 
 Organizer 1 (admin) deploys the popcontract and sends the configuration of the party using a private function, registering the different data needed : name, place, duration and the Ethereum public addresses of the n other organizers.
@@ -25,20 +23,29 @@ The contract decides which set of keys to register by taking the one submitted b
 
 ## How to deploy using Go :
 
-If you wish to modify the solidity contract, before running execute :
+You will need to have geth and to run a full node. The current specified path is for the rinkeby network. Organizers will need to create accounts using geth, and the administrator
+of the party needs to input is JSON file as well as his password into the app.go file. Manual input of nonce is required in the app.go file as well. To get current nonce run :
+
+`geth attach ipc:"path/to/your/geth.ipc"`
+
+`web3.eth.getTransactionCount("administrator address")`
+
+To run, clone project & in directory run :
+
+`go build && ./popcontract`
+
+Currently displays a demo of a party setup.
+
+To apply modification to popcontract.sol :
 
 `abigen --sol=popcontract.sol --pkg=main --out=pop.go`
 
-Then :
-
-`go build . && ./popcontract`
-
-
+![Image](/doc/fsm.jpg)
 
 
 ## To do :
 
-* Link current version of app.go with main.go
-* Connect CLI to main.go
-* Change the format of the publicKeySet into ed25519
+* Test with non empty keyset
+* Connect CLI to app.go
 * Write consensus function
+* Final statement function
