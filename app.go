@@ -10,6 +10,8 @@ import (
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
+	"gopkg.in/dedis/crypto.v0/abstract"
+	"gopkg.in/dedis/onet.v1/app"
 )
 
 type Config struct {
@@ -25,9 +27,50 @@ type Config struct {
 	Deadline int64
 }
 
+type PopDesc struct {
+	// Name and purpose of the party.
+	Name string
+	// DateTime of the party. It is in the following format, following UTC:
+	//   YYYY-MM-DD HH:mm
+	DateTime string
+	// Location of the party
+	Location string
+}
+
+type FinalStatement struct {
+	// Desc is the description of the pop-party.
+	Desc *PopDesc
+	// Attendees holds a slice of all public keys of the attendees.
+	Attendees []abstract.Point
+	// Signature is created by all conodes responsible for that pop-party
+	Signature []byte
+	// Flag indicates, that party was merged
+	Merged bool
+}
+
+type popDescToml struct {
+	Name     string
+	DateTime string
+	Location string
+}
+
+type finalStatementToml struct {
+	Desc      *popDescToml
+	Attendees []string
+	Signature string
+	Merged    bool
+}
+
+type PopDescGroupToml struct {
+	Name     string
+	DateTime string
+	Location string
+	Servers  []*app.ServerToml `toml:"servers"`
+}
+
 var key = `{"address":"286485b3026d5d817f1f444060516b439b13dd2b","crypto":{"cipher":"aes-128-ctr","ciphertext":"d1a54d49808b658d9ea5a2c795c6a26741483699bf258d43a1d102dbfded867a","cipherparams":{"iv":"779603e70f888ee1496cbe19a7575cef"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"3fcc04ce5dbbfcdcdadeff6d5a69b05bb1931e435459105883ac64de5aefe271"},"mac":"d170e43d5e67e747bf766a112f48f649f574e6938ceb8c361dd73f7e2a586c16"},"id":"cad9bc2c-89c2-401f-bc5e-de4b4a11161d","version":3}`
 
-var nonce int64 = 114
+var nonce int64 = 162
 
 func main() {
 
@@ -49,7 +92,7 @@ func main() {
 	//Link to deployed contract
 	//contract := orgLink(endPoint, testAddress)
 
-	time.Sleep(45 * time.Second)
+	time.Sleep(30 * time.Second)
 
 	st, _ := contract.CurrentState(nil)
 	fmt.Println(returnState(uint(st)))
@@ -58,7 +101,7 @@ func main() {
 	//organisator signs contract
 	sign(key, "testpassword", contract)
 
-	time.Sleep(45 * time.Second)
+	time.Sleep(30 * time.Second)
 
 	st, _ = contract.CurrentState(nil)
 	fmt.Println(returnState(uint(st)))
@@ -67,7 +110,7 @@ func main() {
 	//Administrator signs whole configuration
 	signAdmin(key, "testpassword", contract)
 
-	time.Sleep(45 * time.Second)
+	time.Sleep(30 * time.Second)
 
 	st, _ = contract.CurrentState(nil)
 	fmt.Println(returnState(uint(st)))
@@ -82,10 +125,12 @@ func main() {
 	fmt.Println(returnState(uint(st)))
 	fmt.Println(contract.CurrentState(nil))
 
+	fmt.Println(contract.AllSets(nil, big.NewInt(0)))
+
 	//Administrator calls consensus function
 	orgFinal(key, "testpassword", contract)
 
-	time.Sleep(45 * time.Second)
+	time.Sleep(30 * time.Second)
 
 	st, _ = contract.CurrentState(nil)
 	fmt.Println(returnState(uint(st)))

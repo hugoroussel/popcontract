@@ -28,8 +28,64 @@ contract popcontract is mortal {
    struct publicKeySet{
      address sender;
      bytes32 [] keySet;
+   }allSets
+
+
+contract mortal {
+
+  /* Define variable owner of the type address */
+  address owner;
+
+  /* This function is executed at initialization and sets the owner of the contract */
+  function mortal() { owner = msg.sender; }
+
+  /* Function to recover the funds on the contract */
+  function kill() { if (msg.sender == owner) selfdestruct(owner); }
+}
+
+contract popcontract is mortal {
+
+  //States of the contract
+   enum contractState {
+     initialState,
+     configurationSet,
+     configurationSigned,
+     keyDeposited,
+     locked
    }
 
+   struct publicKeySet{
+     address sender;
+     bytes32 [] keySet;
+   }allSets
+
+contract mortal {
+
+  /* Define variable owner of the type address */
+  address owner;
+
+  /* This function is executed at initialization and sets the owner of the contract */
+  function mortal() { owner = msg.sender; }
+
+  /* Function to recover the funds on the contract */
+  function kill() { if (msg.sender == owner) selfdestruct(owner); }
+}
+
+contract popcontract is mortal {
+
+  //States of the contract
+   enum contractState {
+     initialState,
+     configurationSet,
+     configurationSigned,
+     keyDeposited,
+     locked
+   }
+
+   struct publicKeySet{
+     address sender;
+     bytes32 [] keySet;
+   }
 
 
    publicKeySet[] public allSets;
@@ -151,7 +207,7 @@ contract popcontract is mortal {
 function publicKeyConsensus() onlyState(contractState.keyDeposited) beforeDeadline returns (bool){
     if(allSets.length != 0 && msg.sender == owner){
     signed = true;
-    finalKeySet = allSets[allSets.length-1].keySet;
+    finalKeySet = allSets[0].keySet;
     currentState = contractState.locked;
     return true;
   }

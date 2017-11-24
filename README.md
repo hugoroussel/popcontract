@@ -1,5 +1,5 @@
 # Proof of Personhood on the Ethereum blockchain
-Concile anonymity and accoutability using proof of personhood tokens and the ethereum blockchain.
+Concile anonymity and accountability using proof of personhood tokens and the ethereum blockchain.
 
 ## Setting up the configuration of the party
 
