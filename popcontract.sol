@@ -1,7 +1,6 @@
 pragma solidity ^0.4.0;
 
 
-
 contract mortal {
 
   /* Define variable owner of the type address */
@@ -14,62 +13,6 @@ contract mortal {
   function kill() { if (msg.sender == owner) selfdestruct(owner); }
 }
 
-contract popcontract is mortal {
-
-  //States of the contract
-   enum contractState {
-     initialState,
-     configurationSet,
-     configurationSigned,
-     keyDeposited,
-     locked
-   }
-
-   struct publicKeySet{
-     address sender;
-     bytes32 [] keySet;
-   }allSets
-
-
-contract mortal {
-
-  /* Define variable owner of the type address */
-  address owner;
-
-  /* This function is executed at initialization and sets the owner of the contract */
-  function mortal() { owner = msg.sender; }
-
-  /* Function to recover the funds on the contract */
-  function kill() { if (msg.sender == owner) selfdestruct(owner); }
-}
-
-contract popcontract is mortal {
-
-  //States of the contract
-   enum contractState {
-     initialState,
-     configurationSet,
-     configurationSigned,
-     keyDeposited,
-     locked
-   }
-
-   struct publicKeySet{
-     address sender;
-     bytes32 [] keySet;
-   }allSets
-
-contract mortal {
-
-  /* Define variable owner of the type address */
-  address owner;
-
-  /* This function is executed at initialization and sets the owner of the contract */
-  function mortal() { owner = msg.sender; }
-
-  /* Function to recover the funds on the contract */
-  function kill() { if (msg.sender == owner) selfdestruct(owner); }
-}
 
 contract popcontract is mortal {
 
