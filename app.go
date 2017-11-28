@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"gopkg.in/dedis/crypto.v0/abstract"
@@ -70,7 +71,7 @@ type PopDescGroupToml struct {
 
 var key = `{"address":"286485b3026d5d817f1f444060516b439b13dd2b","crypto":{"cipher":"aes-128-ctr","ciphertext":"d1a54d49808b658d9ea5a2c795c6a26741483699bf258d43a1d102dbfded867a","cipherparams":{"iv":"779603e70f888ee1496cbe19a7575cef"},"kdf":"scrypt","kdfparams":{"dklen":32,"n":262144,"p":1,"r":8,"salt":"3fcc04ce5dbbfcdcdadeff6d5a69b05bb1931e435459105883ac64de5aefe271"},"mac":"d170e43d5e67e747bf766a112f48f649f574e6938ceb8c361dd73f7e2a586c16"},"id":"cad9bc2c-89c2-401f-bc5e-de4b4a11161d","version":3}`
 
-var nonce int64 = 168
+var nonce int64 = 198
 
 func main() {
 
@@ -84,10 +85,17 @@ func main() {
 	//attendeeKey := "AAAAC3NzaC1lZDI1NTE5AAAAIDD6LNlQsbLyr0Mp/6mJUCAILBbNGrJefiaVp+G6H97P"
 	//copy(keyset[0], attendeeKey)
 
+	//	copy(keysetA[0][:], "AAAAC3NzaC1lZDI1NTE5AAAAIDD6LNlQsbLyr0Mp/6mJUCAILBbNGrJefiaVp+G6H97P")
+
 	endPoint := "/home/hugo/.ethereum/rinkeby/geth.ipc"
 
+	auth, err := bind.NewTransactor(strings.NewReader(key), "testpassword")
+	if err != nil {
+		log.Fatalf("Failed to create authorized transactor: %v", err)
+	}
+
 	//Deploys contract
-	contract := orgConfig(key, "testpassword", endPoint, Config{"First Party", "Nazareth", 1, s, 60})
+	contract := orgConfig(auth, endPoint, Config{"First Party", "Nazareth", 1, s, 60})
 
 	//Link to deployed contract
 	//contract := orgLink(endPoint, testAddress)
@@ -99,7 +107,7 @@ func main() {
 	fmt.Println(contract.CurrentState(nil))
 
 	//organisator signs contract
-	sign(key, "testpassword", contract)
+	sign(auth, contract)
 
 	time.Sleep(30 * time.Second)
 
@@ -108,7 +116,7 @@ func main() {
 	fmt.Println(contract.CurrentState(nil))
 
 	//Administrator signs whole configuration
-	signAdmin(key, "testpassword", contract)
+	signAdmin(auth, contract)
 
 	time.Sleep(30 * time.Second)
 
@@ -117,7 +125,7 @@ func main() {
 	fmt.Println(contract.CurrentState(nil))
 
 	//organizator deposit key set
-	orgPublic(key, "testpassword", contract, keysetA)
+	orgPublic(auth, contract, keysetA)
 
 	time.Sleep(45 * time.Second)
 
@@ -128,7 +136,7 @@ func main() {
 	fmt.Println(contract.AllSets(nil, big.NewInt(0)))
 
 	//Administrator calls consensus function
-	orgFinal(key, "testpassword", contract)
+	orgFinal(auth, contract)
 
 	time.Sleep(30 * time.Second)
 
@@ -157,12 +165,7 @@ func returnState(state uint) string {
 }
 
 //Deploy & configure a new pop-party
-func orgConfig(jsonKey string, jsonKeyPassword string, network string, config Config) *Popcontract {
-
-	auth, err := bind.NewTransactor(strings.NewReader(jsonKey), jsonKeyPassword)
-	if err != nil {
-		log.Fatalf("Failed to create authorized transactor: %v", err)
-	}
+func orgConfig(auth *bind.TransactOpts, network string, config Config) *Popcontract {
 
 	conn, err := ethclient.Dial(network)
 	if err != nil {
@@ -222,11 +225,8 @@ func orgLink(network string, address common.Address) *Popcontract {
 }
 
 //Organizators sign configuration
-func sign(jsonKey string, jsonKeyPassword string, contract *Popcontract) {
-	auth, err := bind.NewTransactor(strings.NewReader(jsonKey), jsonKeyPassword)
-	if err != nil {
-		log.Fatalf("Failed to create authorized transactor: %v", err)
-	}
+func sign(auth *bind.TransactOpts, contract *Popcontract) {
+
 	txe, err := contract.ConfigSignOrganizers(&bind.TransactOpts{
 		From:     auth.From,
 		Signer:   auth.Signer,
@@ -243,11 +243,8 @@ func sign(jsonKey string, jsonKeyPassword string, contract *Popcontract) {
 }
 
 //Administrator sign whole configuration
-func signAdmin(jsonKey string, jsonKeyPassword string, contract *Popcontract) {
-	auth, err := bind.NewTransactor(strings.NewReader(jsonKey), jsonKeyPassword)
-	if err != nil {
-		log.Fatalf("Failed to create authorized transactor: %v", err)
-	}
+func signAdmin(auth *bind.TransactOpts, contract *Popcontract) {
+
 	txe, err := contract.SignWholeConfiguration(&bind.TransactOpts{
 		From:     auth.From,
 		Signer:   auth.Signer,
@@ -264,11 +261,8 @@ func signAdmin(jsonKey string, jsonKeyPassword string, contract *Popcontract) {
 }
 
 //add a new keyset
-func orgPublic(jsonKey string, jsonKeyPassword string, contract *Popcontract, keyset [][32]byte) error {
-	auth, err := bind.NewTransactor(strings.NewReader(jsonKey), jsonKeyPassword)
-	if err != nil {
-		log.Fatalf("Failed to create authorized transactor: %v", err)
-	}
+func orgPublic(auth *bind.TransactOpts, contract *Popcontract, keyset [][32]byte) error {
+
 	txe, err := contract.DepositPublicKeys(&bind.TransactOpts{
 		From:     auth.From,
 		Signer:   auth.Signer,
@@ -288,11 +282,8 @@ func orgPublic(jsonKey string, jsonKeyPassword string, contract *Popcontract, ke
 }
 
 //reach consensus
-func orgFinal(jsonKey string, jsonKeyPassword string, contract *Popcontract) error {
-	auth, err := bind.NewTransactor(strings.NewReader(jsonKey), jsonKeyPassword)
-	if err != nil {
-		log.Fatalf("Failed to create authorized transactor: %v", err)
-	}
+func orgFinal(auth *bind.TransactOpts, contract *Popcontract) error {
+
 	txe, err := contract.PublicKeyConsensus(&bind.TransactOpts{
 		From:     auth.From,
 		Signer:   auth.Signer,

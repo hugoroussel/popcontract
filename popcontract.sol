@@ -75,6 +75,7 @@ contract popcontract is mortal {
     organizersAdresses = data;
     currentState = contractState.configurationSet;
     signedConfiguration.length = organizers-1;
+    finalKeySet.length = 1;
     return true;
     }
     else{
@@ -147,8 +148,11 @@ contract popcontract is mortal {
   //allSets.length != 0 && msg.sender == owner
   //onlyState(contractState.keyDeposited)
 
+
+
+//allsets length != 0 blocks
 function publicKeyConsensus() onlyState(contractState.keyDeposited) beforeDeadline returns (bool){
-    if(allSets.length != 0 && msg.sender == owner){
+    if(msg.sender == owner){
     signed = true;
     finalKeySet = allSets[0].keySet;
     currentState = contractState.locked;
