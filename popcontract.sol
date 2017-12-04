@@ -25,7 +25,7 @@ contract popcontract is mortal {
      locked
    }
 
-   struct publicKeySet{
+   struct publicKeySet{ 
      address sender;
      bytes32 [] keySet;
    }
