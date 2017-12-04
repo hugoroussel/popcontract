@@ -23,7 +23,7 @@ import (
 	cli "gopkg.in/urfave/cli.v1"
 )
 
-var nonce int64 = 229
+var nonce int64 = 230
 
 func main() {
 	appCli := cli.NewApp()
@@ -59,10 +59,24 @@ func main() {
 					Action:    orgPublic,
 				},
 				{
+					Name:      "sign",
+					Aliases:   []string{"s"},
+					Usage:     "sign the configuration for organizers",
+					ArgsUsage: "private key",
+					Action:    sign,
+				},
+				{
+					Name:      "signAdmin",
+					Aliases:   []string{"sA"},
+					Usage:     "sign the whoel config",
+					ArgsUsage: "private key of administrator",
+					Action:    signAdmin,
+				},
+				{
 					Name:      "final",
 					Aliases:   []string{"f"},
-					Usage:     "finalizes the party",
-					ArgsUsage: "party_hash",
+					Usage:     "reach consensus",
+					ArgsUsage: "private key",
 					Action:    orgFinal,
 				},
 			},
@@ -378,6 +392,7 @@ func newConfig(fileConfig string) (*Config, error) {
 		return nil, fmt.Errorf("couldn't read %s: %s - please remove it",
 			name, err)
 	}
+	//blocks here
 	_, msg, err := network.Unmarshal(buf)
 	if err != nil {
 		return nil, fmt.Errorf("error while reading file %s: %s",
