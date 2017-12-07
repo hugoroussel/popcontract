@@ -21,20 +21,38 @@ Every organizer sends a (sorted) list of public attendees keys to the contract. 
 
 The contract decides which set of keys to register by taking the one submitted by most organizers. Other ways to reach consensus are also possible. The organizer could include the one choosen in the configuration of the party. Once this is done, the contract enters the state "Locked".
 
-## How to deploy using Go :
+## How to use using Go :
 
-You will need to have geth and to run a full node. The current specified path is for the rinkeby network. Organizers will need to create accounts using geth, and the administrator
-of the party needs to input is JSON file as well as his password into the app.go file. Manual input of nonce is required in the app.go file as well. To get current nonce run :
+You will need to have geth and to run a full node. Organizers will need to create accounts using geth and will need their private key.
+To deploy the contract run :
+`go build`
+`./popcontract org link "your private key" "your geth path" "your account nonce (in string format)" `
+
+To get your account nonce, either use a block explorer like etherscan.io or :
 
 `geth attach ipc:"path/to/your/geth.ipc"`
 
-`web3.eth.getTransactionCount("administrator address")`
+`web3.eth.getTransactionCount("your public address")`
 
-To run, clone project & in directory run :
+To set the configuration :
 
-`go build && ./popcontract`
+`./popcontract org config "dest.toml"`
 
-Currently displays a demo of a party setup.
+To sign :
+
+`./popcontract org sign "private key"`
+
+To sign whole configuration :
+
+`./popcontract org signAdmin`
+
+To deposit new key set :
+
+`./popcontract org public "private key" "keyset"`
+
+To reach consensus :
+
+`./popcontract org final`
 
 To apply modification to popcontract.sol :
 
@@ -45,7 +63,14 @@ To apply modification to popcontract.sol :
 
 ## To do :
 
-* Test with non empty keyset
-* Connect CLI to app.go
-* Write consensus function
-* Final statement function
+* Change consensus function
+* Add final statement function to final
+* Add different config for organizers
+
+## Notes :
+
+* The gas prices and limits are hard-coded in app.go. They are very high so it might be
+a good idea to lower them if you want to test it on the main network.
+* If you prefer interacting with the contract using a GUI you can use myetherwallet with the address of the contract
+and it's ABI that you can find using remix.ethereum.org
+* Always wait for previous transaction to confirm or your next one will fail as the contract won't be in the correct state

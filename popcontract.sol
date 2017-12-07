@@ -25,7 +25,7 @@ contract popcontract is mortal {
      locked
    }
 
-   struct publicKeySet{ 
+   struct publicKeySet{
      address sender;
      bytes32 [] keySet;
    }
@@ -142,13 +142,6 @@ contract popcontract is mortal {
     }
     return false;
   }
-
-  //Just returns the last keySet (temporary)
-  //function publicKeyConsensus() onlyState(contractState.keyDeposited) afterDeadline returns (bool){
-  //allSets.length != 0 && msg.sender == owner
-  //onlyState(contractState.keyDeposited)
-
-
 
 //allsets length != 0 blocks
 function publicKeyConsensus() onlyState(contractState.keyDeposited) beforeDeadline returns (bool){
