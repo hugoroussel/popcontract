@@ -25,7 +25,9 @@ The contract decides which set of keys to register by taking the one submitted b
 
 You will need to have geth and to run a full node. Organizers will need to create accounts using geth and will need their private key.
 To deploy the contract run :
+
 `go build`
+
 `./popcontract org link "your private key" "your geth path" "your account nonce (in string format)" `
 
 To get your account nonce, either use a block explorer like etherscan.io or :
