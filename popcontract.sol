@@ -143,11 +143,11 @@ contract popcontract is mortal {
     return false;
   }
 
-//allsets length != 0 blocks
+//TODO better consensus function
 function publicKeyConsensus() onlyState(contractState.keyDeposited) beforeDeadline returns (bool){
     if(msg.sender == owner){
     signed = true;
-    finalKeySet = allSets[0].keySet;
+    finalKeySet = allSets[allSets.length].keySet;
     currentState = contractState.locked;
     return true;
   }

@@ -43,8 +43,15 @@ func main() {
 					Name:      "link",
 					Aliases:   []string{"l"},
 					Usage:     "deploy new pop contract",
-					ArgsUsage: "private key and network path",
+					ArgsUsage: "private key, network path and account nonce",
 					Action:    orgLink,
+				},
+				{
+					Name:      "linkOrg",
+					Aliases:   []string{"lO"},
+					Usage:     "save organizers configuration",
+					ArgsUsage: "private key, network path and account nonce",
+					Action:    orgLinkOrganizers,
 				},
 				{
 					Name:      "config",
@@ -91,6 +98,11 @@ func main() {
 		},
 		cli.StringFlag{
 			Name:  "config,c",
+			Value: "~/.config/cothority/pop",
+			Usage: "The configuration-directory of pop",
+		},
+		cli.StringFlag{
+			Name:  "Orgconfig, Oc",
 			Value: "~/.config/cothority/pop",
 			Usage: "The configuration-directory of pop",
 		},
@@ -145,7 +157,7 @@ type PopDesc struct {
 //connect to contract
 func orgLink(c *cli.Context) error {
 	log.Lvl3("Org: Link")
-	if c.NArg() < 1 {
+	if c.NArg() < 3 {
 		log.Fatal("Please provide valid private key, geth.ipc path and account Nonce")
 	}
 	key, _ := crypto.HexToECDSA(c.Args().Get(0))
@@ -177,6 +189,26 @@ func orgLink(c *cli.Context) error {
 	cfg.Network = network
 	cfg.Private = c.Args().First()
 	cfg.write()
+	return nil
+}
+
+//Save organizer address
+func orgLinkOrganizers(c *cli.Context) error {
+	log.Lvl3("Org: Link")
+	if c.NArg() < 3 {
+		log.Fatal("Please provide valid private key, geth.ipc path and account Nonce")
+	}
+	network := c.Args().Get(1)
+	cfg1 := getConfig(c)
+	nonce, err := strconv.Atoi(c.Args().Get(2))
+	if err != nil {
+		return err
+	}
+	cfg1.Network = network
+	cfg1.Private = c.Args().First()
+	cfg1.Nonce = nonce
+	cfg1.write()
+	fmt.Println("Organizer config saved.")
 	return nil
 }
 
@@ -237,8 +269,8 @@ func orgConfig(c *cli.Context) error {
 
 // adds a public key to the list
 func orgPublic(c *cli.Context) error {
-	if c.NArg() < 2 {
-		log.Fatal("Please give a private key and the public keys to add")
+	if c.NArg() < 1 {
+		log.Fatal("Please give the public keys to add")
 	}
 	log.Lvl3("Org: Adding public keys", c.Args().Get(1))
 	str := c.Args().Get(1)
@@ -262,7 +294,7 @@ func orgPublic(c *cli.Context) error {
 	if err != nil {
 		log.Fatalf("could not connect to network: %v", err)
 	}
-	key, _ := crypto.HexToECDSA(c.Args().Get(0))
+	key, _ := crypto.HexToECDSA(cfg.Private)
 	auth := bind.NewKeyedTransactor(key)
 	contract, err := NewPopcontract(common.HexToAddress(cfg.Address), conn)
 	if err != nil {
@@ -287,15 +319,15 @@ func orgPublic(c *cli.Context) error {
 
 //Organizators sign configuration
 func sign(c *cli.Context) error {
-	if c.NArg() < 1 {
-		log.Fatal(`Please give valid private key `)
+	if c.NArg() > 0 {
+		log.Fatal(`No argument needed`)
 	}
 	cfg := getConfig(c)
 	conn, err := ethclient.Dial(cfg.Network)
 	if err != nil {
 		log.Fatalf("could not connect to network: %v", err)
 	}
-	key, _ := crypto.HexToECDSA(c.Args().Get(0))
+	key, _ := crypto.HexToECDSA(cfg.Private)
 	auth := bind.NewKeyedTransactor(key)
 	contract, err := NewPopcontract(common.HexToAddress(cfg.Address), conn)
 	if err != nil {
