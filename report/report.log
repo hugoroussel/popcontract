@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.12.10)  11 DEC 2017 13:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.12.10)  11 DEC 2017 18:32
 entering extended mode
 **./report.tex
 (report.tex
@@ -138,58 +138,34 @@ Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 \NC@list=\toks21
 \extratabsurround=\skip46
 \backup@length=\skip47
-)
-(C:\Users\Hugo\AppData\Roaming\MiKTeX\2.9\tex\latex\epigraph\epigraph.sty
-Package: epigraph 2009/09/02 v1.5c typesetting epigraphs
-\beforeepigraphskip=\skip48
-\afterepigraphskip=\skip49
-\epigraphwidth=\skip50
-\epigraphrule=\skip51
-)
-(C:\Users\Hugo\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty
-Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
-
-(C:\Users\Hugo\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
-Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen116
-\captionmargin@=\dimen117
-\captionwidth=\dimen118
-\caption@tempdima=\dimen119
-\caption@indent=\dimen120
-\caption@parindent=\dimen121
-\caption@hangindent=\dimen122
-)
-\c@ContinuedFloat=\count101
-)
-(report.aux)
+) (report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
 
 (C:\Users\Hugo\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count102
-\scratchdimen=\dimen123
+\scratchcounter=\count101
+\scratchdimen=\dimen116
 \scratchbox=\box28
-\nofMPsegments=\count103
-\nofMParguments=\count104
+\nofMPsegments=\count102
+\nofMParguments=\count103
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count105
-\MPscratchDim=\dimen124
-\MPnumerator=\count106
-\makeMPintoPDFobject=\count107
+\MPscratchCnt=\count104
+\MPscratchDim=\dimen117
+\MPnumerator=\count105
+\makeMPintoPDFobject=\count106
 \everyMPtoPDFconversion=\toks23
 ) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
@@ -235,14 +211,10 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
-)
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: End \AtBeginDocument code.
- (cover.tex
-
-LaTeX Warning: File `logo_epfl_coul.eps' not found on input line 68.
-
+) (cover.tex
 Package epstopdf Info: Source file: <logo_epfl_coul.eps>
+(epstopdf)                    date: 2017-12-10 17:42:42
+(epstopdf)                    size: 104278 bytes
 (epstopdf)             Output file: <logo_epfl_coul-eps-converted-to.pdf>
 (epstopdf)                    date: 2017-12-10 17:42:42
 (epstopdf)                    size: 19393 bytes
@@ -270,71 +242,22 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./logo_epfl_coul-eps-conv
 erted-to.pdf>]
-[2] [3] <popcontract.pdf, id=20, 700.6175pt x 428.60126pt>
-File: popcontract.pdf Graphic file (type pdf)
-
-<use popcontract.pdf>
-Package pdftex.def Info: popcontract.pdf used on input line 70.
-(pdftex.def)             Requested size: 469.41129pt x 287.16135pt.
-
-Overfull \hbox (109.41129pt too wide) in paragraph at lines 70--71
-[][] 
- []
-
-
-Overfull \hbox (17.0pt too wide) in paragraph at lines 69--73
-[]$[]$ 
- []
-
-[4 <./popcontract.pdf>] <fsm.pdf, id=36, 722.7pt x 542.025pt>
-File: fsm.pdf Graphic file (type pdf)
- <use fsm.pdf>
-Package pdftex.def Info: fsm.pdf used on input line 78.
-(pdftex.def)             Requested size: 484.20648pt x 363.15486pt.
-
-Overfull \hbox (124.20648pt too wide) in paragraph at lines 78--79
-[][] 
- []
-
-
-Overfull \hbox (17.0pt too wide) in paragraph at lines 77--81
-[]$[]$ 
- []
-
-[5 <./fsm.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 96--104
-
- []
-
-[6]
-Overfull \hbox (0.18953pt too wide) in paragraph at lines 118--118
-[]\OT1/cmr/bx/n/14.4 Theoretical and prac-ti-cal lim-i-ta-tions of the im-
- []
-
-
-Overfull \hbox (77.7397pt too wide) has occurred while \output is active
-\OT1/cmr/m/sl/10.95 0.5.  THEORETICAL AND PRACTICAL LIMITATIONS OF THE IMPLEMEN
-TATION. \OT1/cmr/m/n/10.95 7
- []
-
-[7] (report.aux) ) 
+[2] (report.aux) ) 
 Here is how much of TeX's memory you used:
- 3633 strings out of 493323
- 53018 string characters out of 3139068
- 115783 words of memory out of 3000000
- 7122 multiletter control sequences out of 15000+200000
- 12465 words of font info for 48 fonts, out of 3000000 for 9000
+ 2501 strings out of 493323
+ 32656 string characters out of 3139068
+ 92855 words of memory out of 3000000
+ 6005 multiletter control sequences out of 15000+200000
+ 9844 words of font info for 37 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,15n,39p,669b,317s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,15n,26p,256b,317s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb>
-Output written on report.pdf (7 pages, 198339 bytes).
+mbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on report.pdf (2 pages, 70820 bytes).
 PDF statistics:
- 78 PDF objects out of 1000 (max. 8388607)
+ 28 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
