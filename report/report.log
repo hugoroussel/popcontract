@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.12.10)  11 DEC 2017 18:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.12.10)  13 DEC 2017 18:05
 entering extended mode
 **./report.tex
 (report.tex
@@ -138,35 +138,86 @@ Package: array 2016/10/06 v2.4d Tabular extension package (FMi)
 \NC@list=\toks21
 \extratabsurround=\skip46
 \backup@length=\skip47
+)
+(C:\Users\Hugo\AppData\Roaming\MiKTeX\2.9\tex\latex\epigraph\epigraph.sty
+Package: epigraph 2009/09/02 v1.5c typesetting epigraphs
+\beforeepigraphskip=\skip48
+\afterepigraphskip=\skip49
+\epigraphwidth=\skip50
+\epigraphrule=\skip51
+)
+(C:\Users\Hugo\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(C:\Users\Hugo\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen116
+\captionmargin@=\dimen117
+\captionwidth=\dimen118
+\caption@tempdima=\dimen119
+\caption@indent=\dimen120
+\caption@parindent=\dimen121
+\caption@hangindent=\dimen122
+)
+\c@ContinuedFloat=\count101
+)
+(C:\Users\Hugo\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.sty
+\lst@mode=\count102
+\lst@gtempboxa=\box28
+\lst@token=\toks22
+\lst@length=\count103
+\lst@currlwidth=\dimen123
+\lst@column=\count104
+\lst@pos=\count105
+\lst@lostspace=\dimen124
+\lst@width=\dimen125
+\lst@newlines=\count106
+\lst@lineno=\count107
+\lst@maxwidth=\dimen126
+
+(C:\Users\Hugo\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count108
+\lst@skipnumbers=\count109
+\lst@framebox=\box29
+)
+(C:\Users\Hugo\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\makeidx.sty"
+Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 ) (report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 
 (C:\Users\Hugo\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count101
-\scratchdimen=\dimen116
-\scratchbox=\box28
-\nofMPsegments=\count102
-\nofMParguments=\count103
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count104
-\MPscratchDim=\dimen117
-\MPnumerator=\count105
-\makeMPintoPDFobject=\count106
-\everyMPtoPDFconversion=\toks23
+\scratchcounter=\count110
+\scratchdimen=\dimen127
+\scratchbox=\box30
+\nofMPsegments=\count111
+\nofMParguments=\count112
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count113
+\MPscratchDim=\dimen128
+\MPnumerator=\count114
+\makeMPintoPDFobject=\count115
+\everyMPtoPDFconversion=\toks24
 ) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -211,10 +262,16 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
-) (cover.tex
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count116
+ (cover.tex
+
+LaTeX Warning: File `logo_epfl_coul.eps' not found on input line 68.
+
 Package epstopdf Info: Source file: <logo_epfl_coul.eps>
-(epstopdf)                    date: 2017-12-10 17:42:42
-(epstopdf)                    size: 104278 bytes
 (epstopdf)             Output file: <logo_epfl_coul-eps-converted-to.pdf>
 (epstopdf)                    date: 2017-12-10 17:42:42
 (epstopdf)                    size: 19393 bytes
@@ -242,22 +299,146 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./logo_epfl_coul-eps-conv
 erted-to.pdf>]
-[2] (report.aux) ) 
+[2] [3] <popcontract.pdf, id=20, 700.6175pt x 428.60126pt>
+File: popcontract.pdf Graphic file (type pdf)
+
+<use popcontract.pdf>
+Package pdftex.def Info: popcontract.pdf used on input line 82.
+(pdftex.def)             Requested size: 469.41129pt x 287.16135pt.
+
+Overfull \hbox (109.41129pt too wide) in paragraph at lines 82--83
+[][] 
+ []
+
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 81--85
+[]$[]$ 
+ []
+
+[4 <./popcontract.pdf>] <fsm.pdf, id=36, 722.7pt x 542.025pt>
+File: fsm.pdf Graphic file (type pdf)
+ <use fsm.pdf>
+Package pdftex.def Info: fsm.pdf used on input line 90.
+(pdftex.def)             Requested size: 484.20648pt x 363.15486pt.
+
+Overfull \hbox (124.20648pt too wide) in paragraph at lines 90--91
+[][] 
+ []
+
+
+Overfull \hbox (17.0pt too wide) in paragraph at lines 89--93
+[]$[]$ 
+ []
+
+[5 <./fsm.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 109--117
+
+ []
+
+[6]
+Overfull \hbox (0.18953pt too wide) in paragraph at lines 132--132
+[]\OT1/cmr/bx/n/14.4 Theoretical and prac-ti-cal lim-i-ta-tions of the im-
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (77.7397pt too wide) has occurred while \output is active
+\OT1/cmr/m/sl/10.95 0.5.  THEORETICAL AND PRACTICAL LIMITATIONS OF THE IMPLEMEN
+TATION. \OT1/cmr/m/n/10.95 7
+ []
+
+[7] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
+
+ []
+
+
+Overfull \hbox (73.62451pt too wide) in paragraph at lines 195--196
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+<orglink.jpg, id=65, 963.6pt x 126.4725pt>
+File: orglink.jpg Graphic file (type jpg)
+ <use orglink.jpg>
+Package pdftex.def Info: orglink.jpg used on input line 200.
+(pdftex.def)             Requested size: 433.616pt x 56.9121pt.
+
+Overfull \hbox (73.616pt too wide) in paragraph at lines 200--201
+ [] 
+ []
+
+<gethconsole.jpg, id=66, 963.6pt x 185.19188pt>
+File: gethconsole.jpg Graphic file (type jpg)
+ <use gethconsole.jpg>
+Package pdftex.def Info: gethconsole.jpg used on input line 204.
+(pdftex.def)             Requested size: 433.616pt x 83.33556pt.
+
+Overfull \hbox (73.616pt too wide) in paragraph at lines 204--205
+ [] 
+ []
+
+<blockexplorer.jpg, id=67, 861.2175pt x 596.2275pt>
+File: blockexplorer.jpg Graphic file (type jpg)
+ <use blockexplorer.jpg>
+Package pdftex.def Info: blockexplorer.jpg used on input line 209.
+(pdftex.def)             Requested size: 430.6077pt x 298.11302pt.
+
+Overfull \hbox (70.6077pt too wide) in paragraph at lines 209--210
+ [] 
+ []
+
+[10 <./orglink.jpg> <./gethconsole.jpg>]
+Overfull \hbox (86.76465pt too wide) in paragraph at lines 225--226
+[][][][][][][][][] 
+ []
+
+
+Overfull \hbox (139.3252pt too wide) in paragraph at lines 234--235
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[11 <./blockexplorer.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
+
+ []
+
+[12] (report.toc)
+\tf@toc=\write3
+\openout3 = `report.toc'.
+
+ [13
+
+] (report.aux) ) 
 Here is how much of TeX's memory you used:
- 2501 strings out of 493323
- 32656 string characters out of 3139068
- 92855 words of memory out of 3000000
- 6005 multiletter control sequences out of 15000+200000
- 9844 words of font info for 37 fonts, out of 3000000 for 9000
+ 4842 strings out of 493323
+ 71004 string characters out of 3139068
+ 137311 words of memory out of 3000000
+ 8309 multiletter control sequences out of 15000+200000
+ 13071 words of font info for 50 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,15n,26p,256b,317s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on report.pdf (2 pages, 70820 bytes).
+ 39i,15n,39p,710b,843s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmb
+x10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on report.pdf (13 pages, 426043 bytes).
 PDF statistics:
- 28 PDF objects out of 1000 (max. 8388607)
+ 104 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

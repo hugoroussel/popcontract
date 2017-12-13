@@ -1,0 +1,38 @@
+\contentsline {section}{\numberline {0.1}Introduction}{2}
+\contentsline {section}{\numberline {0.2}Proof of Personhood tokens}{2}
+\contentsline {subsection}{\numberline {0.2.1}What are Proof of Personhood tokens?}{2}
+\contentsline {subsection}{\numberline {0.2.2}Pseudonym parties}{2}
+\contentsline {subsection}{\numberline {0.2.3}Current implementation}{2}
+\contentsline {subsection}{\numberline {0.2.4}Limitations}{3}
+\contentsline {section}{\numberline {0.3}Ethereum}{3}
+\contentsline {subsection}{\numberline {0.3.1}Ethereum, Solidity and smart contracts}{3}
+\contentsline {subsection}{\numberline {0.3.2}Why use Ethereum?}{3}
+\contentsline {subsection}{\numberline {0.3.3}A quick note on testnets}{3}
+\contentsline {section}{\numberline {0.4}Implementation of Popcontract}{4}
+\contentsline {subsection}{\numberline {0.4.1}Abstract}{4}
+\contentsline {subsection}{\numberline {0.4.2}Popcontract finite state machine}{4}
+\contentsline {subsection}{\numberline {0.4.3}Technical implementation}{5}
+\contentsline {subsubsection}{Configuration of party}{5}
+\contentsline {subsubsection}{Signing of configuration}{6}
+\contentsline {subsubsection}{Deposit of public keys of attendees}{6}
+\contentsline {subsubsection}{Consensus and lock}{6}
+\contentsline {subsection}{\numberline {0.4.4}How to interact with an Ethereum smartcontract}{6}
+\contentsline {subsubsection}{Creating and sending transactions}{6}
+\contentsline {subsubsection}{Other ways}{7}
+\contentsline {subsection}{\numberline {0.4.5}Interoperability with current system}{7}
+\contentsline {section}{\numberline {0.5}Theoretical and practical limitations of the implementation.}{7}
+\contentsline {subsection}{\numberline {0.5.1}Theoretical limitations}{7}
+\contentsline {subsection}{\numberline {0.5.2}Practical limitations}{8}
+\contentsline {section}{\numberline {0.6}Results}{8}
+\contentsline {section}{\numberline {0.7}Possible improvements}{8}
+\contentsline {subsection}{\numberline {0.7.1}Create a friendlier interface}{8}
+\contentsline {subsection}{\numberline {0.7.2}Improve consensus function and ways to reach it}{8}
+\contentsline {subsection}{\numberline {0.7.3}Size optimization}{8}
+\contentsline {subsection}{\numberline {0.7.4}Technical improvements}{8}
+\contentsline {subsection}{\numberline {0.7.5}Decrease input parameters}{8}
+\contentsline {subsection}{\numberline {0.7.6}Better way to handle private keys}{9}
+\contentsline {section}{\numberline {0.8}How to create PoP tokens using the contract}{9}
+\contentsline {subsection}{\numberline {0.8.1}Tools needed to deploy}{9}
+\contentsline {subsection}{\numberline {0.8.2}How to deploy a pop contract}{9}
+\contentsline {subsection}{\numberline {0.8.3}How to intereact with contract}{11}
+\contentsline {section}{\numberline {0.9}What to do}{12}
