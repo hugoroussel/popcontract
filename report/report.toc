@@ -34,5 +34,5 @@
 \contentsline {section}{\numberline {0.8}How to create PoP tokens using the contract}{9}
 \contentsline {subsection}{\numberline {0.8.1}Tools needed to deploy}{9}
 \contentsline {subsection}{\numberline {0.8.2}How to deploy a pop contract}{9}
-\contentsline {subsection}{\numberline {0.8.3}How to intereact with contract}{11}
+\contentsline {subsection}{\numberline {0.8.3}How to interact with contract}{11}
 \contentsline {section}{\numberline {0.9}What to do}{12}
