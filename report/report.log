@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.12.10)  14 DEC 2017 17:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.12.10)  18 DEC 2017 10:55
 entering extended mode
 **./report.tex
 (report.tex
@@ -341,76 +341,60 @@ Overfull \hbox (0.18953pt too wide) in paragraph at lines 132--132
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Overfull \hbox (77.7397pt too wide) has occurred while \output is active
 \OT1/cmr/m/sl/10.95 0.5.  THEORETICAL AND PRACTICAL LIMITATIONS OF THE IMPLEMEN
 TATION. \OT1/cmr/m/n/10.95 7
  []
 
-[7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
-
+[7] [8] [9]
+Overfull \hbox (42.40814pt too wide) in paragraph at lines 206--206
+[]\OT1/cmtt/m/n/10.95 ./popcontract org link "your private key" "your/geth.ipc/
+path" "nonce"[] 
  []
 
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 191--192
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 191--192
-
- []
-
-
-Overfull \hbox (73.62451pt too wide) in paragraph at lines 195--196
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-<orglink.jpg, id=65, 963.6pt x 126.4725pt>
+<orglink.jpg, id=64, 963.6pt x 126.4725pt>
 File: orglink.jpg Graphic file (type jpg)
  <use orglink.jpg>
-Package pdftex.def Info: orglink.jpg used on input line 200.
+Package pdftex.def Info: orglink.jpg used on input line 212.
 (pdftex.def)             Requested size: 433.616pt x 56.9121pt.
 
-Overfull \hbox (73.616pt too wide) in paragraph at lines 200--201
+Overfull \hbox (73.616pt too wide) in paragraph at lines 212--213
  [] 
  []
 
-<gethconsole.jpg, id=66, 963.6pt x 185.19188pt>
+<gethconsole.jpg, id=65, 963.6pt x 185.19188pt>
 File: gethconsole.jpg Graphic file (type jpg)
  <use gethconsole.jpg>
-Package pdftex.def Info: gethconsole.jpg used on input line 204.
+Package pdftex.def Info: gethconsole.jpg used on input line 216.
 (pdftex.def)             Requested size: 433.616pt x 83.33556pt.
 
-Overfull \hbox (73.616pt too wide) in paragraph at lines 204--205
+Overfull \hbox (73.616pt too wide) in paragraph at lines 216--217
  [] 
  []
 
-<blockexplorer.jpg, id=67, 861.2175pt x 596.2275pt>
+[10 <./orglink.jpg>] <blockexplorer.jpg, id=70, 861.2175pt x 596.2275pt>
 File: blockexplorer.jpg Graphic file (type jpg)
- <use blockexplorer.jpg>
-Package pdftex.def Info: blockexplorer.jpg used on input line 209.
+
+<use blockexplorer.jpg>
+Package pdftex.def Info: blockexplorer.jpg used on input line 221.
 (pdftex.def)             Requested size: 430.6077pt x 298.11302pt.
 
-Overfull \hbox (70.6077pt too wide) in paragraph at lines 209--210
+Overfull \hbox (70.6077pt too wide) in paragraph at lines 221--222
  [] 
  []
 
-[10 <./orglink.jpg> <./gethconsole.jpg>]
-Overfull \hbox (86.76465pt too wide) in paragraph at lines 225--226
+[11 <./gethconsole.jpg> <./blockexplorer.jpg>]
+Overfull \hbox (86.76465pt too wide) in paragraph at lines 237--238
 [][][][][][][][][] 
  []
 
 
-Overfull \hbox (139.3252pt too wide) in paragraph at lines 234--235
+Overfull \hbox (139.3252pt too wide) in paragraph at lines 246--247
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[11 <./blockexplorer.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 248--249
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--261
 
  []
 
@@ -420,25 +404,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 248--249
 
  [13
 
-] (report.aux) ) 
+] [14] (report.aux) ) 
 Here is how much of TeX's memory you used:
- 4842 strings out of 493323
- 71004 string characters out of 3139068
- 137311 words of memory out of 3000000
- 8309 multiletter control sequences out of 15000+200000
- 13071 words of font info for 50 fonts, out of 3000000 for 9000
+ 4844 strings out of 493323
+ 71028 string characters out of 3139068
+ 139311 words of memory out of 3000000
+ 8310 multiletter control sequences out of 15000+200000
+ 13239 words of font info for 51 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,15n,39p,711b,843s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmb
-x10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on report.pdf (13 pages, 426019 bytes).
+ 39i,15n,39p,711b,1432s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on report.pdf (14 pages, 434098 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
+ 107 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

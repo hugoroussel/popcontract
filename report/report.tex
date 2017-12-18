@@ -131,9 +131,20 @@ The conversion was done using a geth tool. Geth is a command line interface for 
 
 \section{Theoretical and practical limitations of the implementation.}
 \subsection{Theoretical limitations}
-This scheme of authentication has many issues, particurlarly in its implementation on a large scale
+\subsubsection*{Scalability}
+It might be possible to create large pseudonym parties but after a critical point it becomes highly unpractical for both attendees and organizers to register every member. This might be avoided by doing multiple different parties, which brings new issues. First off, the parties must held at the same time and sufficiently appart from each other to avoid attendees travelling and depositing multiple keys. Then arise a new issue, how to assure the legitimacy of each organizers of each party? How to assure that attendees don't pay others to use their tokens? How to avoid creation of fake parties? 
+
+
 \subsection{Practical limitations}
 \section{Results}
+\subsection{Time to deploy}
+The current contract takes on average one minute to deploy. However users don't need to wait until the contract is fully mined to interact with it. During tests, it was shown that sending all transactions with less than one second between them and in order, didn't caused it to malfunction. Each one was mined and activated correctly the contract afterwards. \\
+Therefore it is possible to create fully functionnal PoP tokens in less than five minutes. 
+\subsection{Price in ether}
+The current price to deploy the contract is 0.12 eth which is at the current market price 84 USD (coinmarketcap.com the 16/12/2017). It also cost around 14 USD (0.02 eth) to call the heavier functions (configuration setting and key deposit). The price in arguably quite high. However, since the contract doesn't need value exchange between participants, it can be deployed and used on the testnet for 0 USD.
+\subsection{Attack vectors}
+
+  
 \section{Possible improvements}
 
 \subsection{Create a friendlier interface}
@@ -142,7 +153,7 @@ One of the biggest issues with the current scheme is, its difficulty to use for 
 The system could be optimized by adding an additionnal parameter in the contract to choose the way the final keyset is choosen. For the moment the contract only returns the last keyset added. There could be different ways to select the good keyset. One example could be voting, by organizers and/or attendees. Another would be to select the keyset with the least/more keys, or even creating a new keyset with all the different keys added. Optimally the organizers could sign beforehand the governance system. One of the issues concerning such functions is that computation on the EVM is very expensive and processing the keys is a very heavy process, particurlaly when the keyset becomes large. 
 
 \subsection{Size optimization}
-It might be possible to make the contract less expensive to deploy/ more efficient by only pushing hash of the data on the blockchain. For example for the function deposit key, the organizers could push only hashes of the keyset and the administrator could push only a hash of the configuration. It is not clear if the efficiency gain is worthwhile compared to the simplicity loss.
+If the entity whishing to verify the personhood of participants possess the set of keys, it might be possible to make the contract less expensive to deploy/ more efficient by only pushing hash of the data on the blockchain. For example for the function deposit key, the organizers could push only hashes of the keyset and the administrator could push only a hash of the configuration. It is not clear if the efficiency gain is worthwhile compared to the simplicity loss.
 
 \subsection{Technical improvements}
 If could be useful to add a way to choose the key format for attendees. For example adding an ethereum key format choice in the configuration of the contract, this would help attendees use the ethereum tools. 
@@ -167,33 +178,32 @@ Golang is a compiled language created by Google. A link is given in the sources 
 \subsection{How to deploy a pop contract}
 \subsubsection*{Synchronize with the ethereum blockchain}
 First you have to run a full node. Depending on the network this will use between 20 and 60 Gb of hardrive space. To synchronize with rinkeby, run :
-\begin{lstlisting}
+\begin{verbatim}
 geth --rinkeby
-\end{lstlisting}
+\end{verbatim}
 Save the path to your geth.ipc file. 
 Depending on your connection this will take a little while, so run it the first time during the night.
 \subsection*{Clone the project directory}
 Clone the project directory using the github link in the sources. 
 \subsection*{Create an ethereum account}
-Create or use an already existing account. You will need your account ethereum private key and the nonce associated. As mentionned earlier, you can find your nonce by inputing your public address in a block explorer and incrementing the nonce of the last successful transaction. You can also find it directly by running : \\
-\begin{lstlisting}
-geth attach "your geth.ipc path"
-\end{lstlisting}  
+Create or use an already existing account. You will need your account ethereum private key and the nonce associated. As mentionned earlier, you can find your nonce by inputing your public address in a block explorer and incrementing the nonce of the last successful transaction. You can also find it directly by running : 
+\begin{verbatim}
+geth attach "your/geth.ipc/path"
+\end{verbatim}  
 In the console type : 
-\begin{lstlisting}
+\begin{verbatim}
 eth.web3.getTransactionsCount("public address")
-\end{lstlisting}
+\end{verbatim}
 \subsubsection*{Deploy contract}
 Go in the cloned directory and run
-\begin{lstlisting}
+\begin{verbatim}
 go build
-\end{lstlisting}
-This step should not be necessary, it will verify that both your go installation and project import went well.\\\\
-
+\end{verbatim}
+This step should not be necessary, it will verify that both your go installation and project import went well.
 To deploy the contract run : 
-\begin{lstlisting}
-./popcontract org link "your private key" "your geth path" "nonce"
-\end{lstlisting}
+\begin{verbatim}
+./popcontract org link "your private key" "your/geth.ipc/path" "nonce"
+\end{verbatim}
 These parameters will be saved in a configuration file.
 The console should show something similar to that : 
 \begin{center}
