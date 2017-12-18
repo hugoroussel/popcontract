@@ -47,13 +47,6 @@ func main() {
 					Action:    orgLink,
 				},
 				{
-					Name:      "linkOrg",
-					Aliases:   []string{"lO"},
-					Usage:     "save organizers configuration",
-					ArgsUsage: "private key, network path and account nonce",
-					Action:    orgLinkOrganizers,
-				},
-				{
 					Name:      "config",
 					Aliases:   []string{"c"},
 					Usage:     "stores the configuration",
@@ -184,31 +177,11 @@ func orgLink(c *cli.Context) error {
 	}
 	cfg.Nonce = cfg.Nonce + 1
 	fmt.Printf("Successfully linked with : %x \n", addr)
-	fmt.Printf("Transaction receipt : %x \n", txe)
+	fmt.Printf("Transaction receipt : %x \n", txe.Hash())
 	cfg.Address = addr.String()
 	cfg.Network = network
 	cfg.Private = c.Args().First()
 	cfg.write()
-	return nil
-}
-
-//Save organizer address
-func orgLinkOrganizers(c *cli.Context) error {
-	log.Lvl3("Org: Link")
-	if c.NArg() < 3 {
-		log.Fatal("Please provide valid private key, geth.ipc path and account Nonce")
-	}
-	network := c.Args().Get(1)
-	cfg1 := getConfig(c)
-	nonce, err := strconv.Atoi(c.Args().Get(2))
-	if err != nil {
-		return err
-	}
-	cfg1.Network = network
-	cfg1.Private = c.Args().First()
-	cfg1.Nonce = nonce
-	cfg1.write()
-	fmt.Println("Organizer config saved.")
 	return nil
 }
 
@@ -239,7 +212,7 @@ func orgConfig(c *cli.Context) error {
 	if err != nil {
 		log.Fatalf("could not instantiate contract: %v \n", err)
 	}
-	fmt.Println("Connected to contract.. \n")
+	fmt.Println("Connected to contract.")
 	key, err := crypto.HexToECDSA(cfg.Private)
 	if err != nil {
 		return err
@@ -262,7 +235,7 @@ func orgConfig(c *cli.Context) error {
 		log.Fatalf("could not set configuration: %v", err)
 	}
 	cfg.Nonce = cfg.Nonce + 1
-	fmt.Printf("Configuration set. Transaction : %v \n", txe)
+	fmt.Printf("Configuration set. Transaction : %x \n", txe.Hash())
 	cfg.write()
 	return nil
 }
@@ -312,7 +285,7 @@ func orgPublic(c *cli.Context) error {
 		log.Fatalf("could not deposit keyset: %v", err)
 	}
 	cfg.Nonce = cfg.Nonce + 1
-	fmt.Printf("Keyset Added. Transaction : %v \n", txe)
+	fmt.Printf("Keyset Added. Transaction : %x \n", txe.Hash())
 	cfg.write()
 	return nil
 }
@@ -345,7 +318,7 @@ func sign(c *cli.Context) error {
 		log.Fatalf("could not sign contract: %v", err)
 	}
 	cfg.Nonce = cfg.Nonce + 1
-	fmt.Printf("Configuration signed. Transaction : %v \n", txe)
+	fmt.Printf("Configuration signed. Transaction : %x \n", txe.Hash())
 	cfg.write()
 	return nil
 }
@@ -377,7 +350,7 @@ func signAdmin(c *cli.Context) error {
 		log.Fatalf("could not sign contract: %v", err)
 	}
 	cfg.Nonce = cfg.Nonce + 1
-	fmt.Printf("Whole configuration signed. Transaction : %v \n", txe)
+	fmt.Printf("Whole configuration signed. Transaction : %x \n", txe.Hash())
 	cfg.write()
 	return nil
 }
@@ -410,7 +383,7 @@ func orgFinal(c *cli.Context) error {
 		log.Fatalf("Could not reach consensus: %v", err)
 	}
 	cfg.Nonce++
-	fmt.Printf("Asking for consensus. Transaction : %v \n", txe)
+	fmt.Printf("Asking for consensus. Transaction : %x \n", txe.Hash())
 	cfg.write()
 
 	return nil
